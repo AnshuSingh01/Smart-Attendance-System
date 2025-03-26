@@ -1,0 +1,261 @@
+/* Unified Styles for Student Portal */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #F0F4F8;
+  color: #2D3748;
+  line-height: 1.6;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  background-image: url('student_image.webp');
+  background-size: cover;
+  background-position: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+header {
+  background-color: #3B82F6;
+  color: white;
+  padding: 2rem 0;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+header p {
+  margin: 0.5rem 0 0;
+  font-size: 1.2rem;
+}
+
+main {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.card {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+.card h2 {
+  color: #3B82F6;
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.input-group {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #4A5568;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+  border-color: #3B82F6;
+  outline: none;
+}
+
+button {
+  background-color: #10B981;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+button:hover {
+  background-color: #0D9488;
+  transform: translateY(-2px);
+}
+
+#attendance-status {
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+  color: #EF4444;
+}
+
+#qr-display-container {
+  margin-top: 1.5rem;
+  display: none;
+}
+
+#qr-display {
+  margin: 0 auto;
+  width: 200px;
+  height: 200px;
+  background: #F0F4F8;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#qr-timer-display {
+  font-weight: bold;
+  color: #EF4444;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+#no-qr-message {
+  font-size: 1.1rem;
+  color: #4A5568;
+}
+
+footer {
+  background-color: #3B82F6;
+  color: white;
+  text-align: center;
+  padding: 1rem 0;
+  margin-top: 2rem;
+}
+
+footer p {
+  margin: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Add to existing CSS */
+.result-message {
+  padding: 10px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.result-message.success {
+  color: #2e7d32;
+  background-color: #e8f5e9;
+}
+
+.result-message.error {
+  color: #c62828;
+  background-color: #ffebee;
+}
+
+.timestamp {
+  margin-top: 8px;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+#manual-code-input {
+  font-family: 'Courier New', monospace;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* Make scanner video responsive */
+#qr-video {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+
+/* Add these to your existing CSS */
+#student-info {
+  font-size: 1.1rem;
+  color: #fff;
+  margin-top: 0.5rem;
+}
+
+#scanner-section {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+#scan-status {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.btn-primary {
+  background-color: #3B82F6;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #2563EB;
+}
+
+#manual-code-input {
+  font-family: 'Courier New', monospace;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+#attendance-result {
+  min-height: 60px;
+}

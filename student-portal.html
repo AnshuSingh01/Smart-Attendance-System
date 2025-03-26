@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Portal - Smart Attendance</title>
+  <link rel="stylesheet" href="student-portal.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <h1>Student Portal</h1>
+      <p id="student-info">Welcome, <span id="student-name"></span> (<span id="student-usn"></span>)</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <!-- QR Scanner Section -->
+      <section class="card">
+        <h2><i class="fas fa-qrcode"></i> Scan QR Code</h2>
+        <div id="scanner-section">
+          <video id="qr-video" width="100%" style="border: 2px solid #3B82F6; display: none;"></video>
+          <button id="toggle-scanner" class="btn-primary">
+            <i class="fas fa-camera"></i> Enable Camera
+          </button>
+          <p id="scan-status">Camera is currently off</p>
+        </div>
+      </section>
+
+      <!-- Manual Entry Section -->
+      <!-- Update the manual code section -->
+      <section class="card">
+        <h2><i class="fas fa-keyboard"></i> Enter Code Manually</h2>
+        <div class="input-group">
+          <label for="manual-code-input">Attendance Code:</label>
+          <input type="text" id="manual-code-input" placeholder="Enter code from teacher" maxlength="20">
+          <small class="help-text">Can be a QR code or 6-digit manual code</small>
+        </div>
+        <button id="submit-manual-code" class="btn-primary">
+          <i class="fas fa-check-circle"></i> Submit Attendance
+        </button>
+      </section>
+
+      <!-- Attendance Status -->
+      <section class="card">
+        <h2><i class="fas fa-clipboard-check"></i> Attendance Status</h2>
+        <div id="attendance-result">
+          <p>No attendance recorded yet</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Smart Attendance System</p>
+    </div>
+  </footer>
+
+  <!-- Include QR scanner library -->
+  <script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
+  <script src="student-portal.js"></script>
+</body>
+
+</html>

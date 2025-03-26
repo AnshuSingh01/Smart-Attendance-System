@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f0f8ff 0%, #e6f2ff 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .login-wrapper {
+            width: 100%;
+            max-width: 400px;
+            padding: 30px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .login-wrapper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #ff0000 0%, #1e90ff 100%);
+        }
+        
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .logo h1 {
+            color: #1e90ff;
+            font-size: 28px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+        
+        .logo p {
+            color: #666;
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        
+        .input-group {
+            margin-bottom: 25px;
+            position: relative;
+        }
+        
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .input-group input {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            background-color: #f9f9f9;
+        }
+        
+        .input-group input:focus {
+            border-color: #1e90ff;
+            box-shadow: 0 0 0 3px rgba(30, 144, 255, 0.1);
+            outline: none;
+            background-color: white;
+        }
+        
+        .login-btn {
+            background: linear-gradient(to right, #ff0000, #ff4500);
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 600;
+            width: 100%;
+            transition: all 0.3s ease;
+            margin-top: 10px;
+            box-shadow: 0 4px 6px rgba(255, 0, 0, 0.1);
+        }
+        
+        .login-btn:hover {
+            background: linear-gradient(to right, #cc0000, #e03e00);
+            box-shadow: 0 6px 8px rgba(255, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+        
+        .login-btn:active {
+            transform: translateY(0);
+        }
+        
+        .error-message {
+            color: #ff0000;
+            margin-top: 15px;
+            font-size: 14px;
+            text-align: center;
+            display: none;
+            padding: 10px;
+            background-color: rgba(255, 0, 0, 0.05);
+            border-radius: 5px;
+            border-left: 3px solid #ff0000;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 25px;
+            color: #666;
+            font-size: 13px;
+        }
+        
+        .footer a {
+            color: #1e90ff;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-wrapper">
+        <div class="logo">
+            <h1>Teacher Portal</h1>
+            <p>Welcome back! Please login to continue</p>
+        </div>
+        
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            </div>
+            
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            </div>
+            
+            <button type="submit" class="login-btn">Login</button>
+            <div id="errorMessage" class="error-message">Invalid username or password</div>
+        </form>
+        
+        <div class="footer">
+            <p>Don't have an account? <a href="#">Sign up</a></p>
+            <p><a href="#">Forgot password?</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const username = document.getElementById('username').value.trim().toUpperCase();
+    const password = document.getElementById('password').value.trim();
+    const errorElement = document.getElementById('errorMessage');
+
+    // Simple validation matching your database samples
+    if (username.match(/^T\d{3}$/) && password === username) {
+        // Successful login
+        localStorage.setItem('teacherSession', JSON.stringify({
+            id: username.replace('T', ''),
+            name: "Teacher Name", // Would come from DB
+            subject: "Subject"    // Would come from DB
+        }));
+        window.location.href = 'teacher-portal.html';
+    } else {
+        errorElement.textContent = 'Invalid Teacher ID or password. Use format T001/T001 to T010/T010';
+        errorElement.style.display = 'block';
+    }
+});
+
+    </script>
+</body>
+</html>

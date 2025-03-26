@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Teacher Portal - Generate QR codes for class attendance with the Smart Attendance System.">
+  <title>Teacher Portal - Smart Attendance System</title>
+  <link rel="stylesheet" href="teacher_portal_css.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/gh/davidshimjs/qrcodejs@gh-pages/qrcode.min.js"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <h1>Teacher Portal</h1>
+      <p>Generate QR codes for class attendance</p>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+    <div class="container">
+      <section class="card">
+        <h2>Generate QR Code</h2>
+        <button id="generate-btn">
+          <i class="fas fa-qrcode"></i>
+          Generate QR Code
+        </button>
+        
+        <div id="qr-container">
+          <div id="qrcode"></div>
+          <div class="qr-info">
+            <p>Display this QR code for students to scan</p>
+            <p>Time remaining: <span id="timer">5:00</span></p>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="card">
+        <h2>Alternative Attendance Code</h2>
+        <div id="manual-code-section">
+          <div class="code-display" id="manual-code">Loading...</div>
+          <p class="code-instructions">Students can enter this code manually</p>
+          <button id="refresh-code">Refresh Code</button>
+        </div>
+      </section>
+
+
+      <section class="card">
+        <h2>Live Attendance</h2>
+        <div id="attendance-list">
+            <table>
+                <thead>
+                    <tr>
+                        <th>USN</th>
+                        <th>Name</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody id="attendance-data">
+                    <!-- Filled by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Smart Attendance System. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="teacher_portal_js.js"></script>
+</body>
+</html>
